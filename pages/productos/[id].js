@@ -158,6 +158,35 @@ const Producto = () => {
         guardarConsultarDB(true);                   // Consultar cuando se realiza un comentario
     }
 
+    // Funcion para revisar que la persona sea la misma que elimina el producto y quien la creo
+    const puedeBorrar = () => {
+        if( !usuario ) return false;
+
+        if( creador.id === usuario.uid ) return true;
+    }
+
+    // Funcion para Eliminar un producto
+    const eliminarProducto = async () => {
+
+        if( !usuario ){
+            return router.push('/');
+        }
+
+        if( creador.id !== usuario.uid ){
+            return router.push('/');
+        }
+
+        try {
+
+            await firebase.db.collection('productos').doc(id).delete();
+
+            router.push('/');
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+
     return (  
         <>
             <Layout>
@@ -201,7 +230,7 @@ const Producto = () => {
                                     ) : null }
 
                                     <h2>Comentarios</h2>
-                                    { comentarios.length === 0 ? "Aun no hay comentarios, Sé el primero en agregar uno" : (
+                                    { comentarios.length === 0 ? "Aun no hay comentarios" : (
                                         <ul>
                                             { comentarios.map( (comentario, i) => (
                                                 
@@ -222,7 +251,7 @@ const Producto = () => {
                                             ))}
                                         </ul>
                                     ) }
-                                    
+                                    { /* Agregar un Boton para Eliminar el producto*/}
                                 </div>
                             </div>
 
@@ -245,7 +274,15 @@ const Producto = () => {
                                     </>
                                 )}
                             </Aside>
+                            { puedeBorrar() && (
+                                <Boton
+                                    onClick={ eliminarProducto }
+                                >Eliminar Producto</Boton>
+                            )}
                         </ContenedorProducto>
+
+                        
+
                     </div>
                 )}
             </Layout>

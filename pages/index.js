@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import Layout from '../components/layout/Layout';
 import styled from '@emotion/styled';
 import DetallesProducto from '../components/layout/DetallesProducto';
-import { FirebaseContext } from '../firebase';
+
+// Importar el hook de los productos
+import useProductos from '../hooks/useProductos';
 
 const Listado = styled.div`
   background-color: #f3f3f3;
@@ -21,29 +23,7 @@ const BgWhite = styled.ul`
 
 export default function Home() {
 
-  // State para los productos
-  const [ productos, guardarProductos ] = useState([]);
-
-  // Importar el Context de Firebase
-  const { firebase } = useContext( FirebaseContext );
-
-  useEffect(() => {
-    const obtenerProductos = () => {
-      firebase.db.collection('productos').orderBy('creado', 'desc').onSnapshot( manejarSnapshot)
-    }
-    obtenerProductos();
-  }, []);
-
-  function manejarSnapshot(snapshot) {
-    const productos = snapshot.docs.map( doc => {
-      return {
-        id: doc.id,
-        ...doc.data()
-      }
-    });
-
-    guardarProductos(productos);
-  }
+  const { productos } = useProductos('creado');
 
   return (
     <>
