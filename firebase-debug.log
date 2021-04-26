@@ -1,0 +1,28 @@
+[debug] [2021-04-26T18:53:49.235Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T18:53:49.256Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\cliente\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2021-04-26T18:53:49.258Z] CLI Version:   8.14.1
+[debug] [2021-04-26T18:53:49.259Z] Platform:      win32
+[debug] [2021-04-26T18:53:49.259Z] Node Version:  v14.15.1
+[debug] [2021-04-26T18:53:49.311Z] Time:          Mon Apr 26 2021 12:53:49 GMT-0600 (hora estándar central)
+[debug] [2021-04-26T18:53:49.312Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T18:53:49.313Z] 
+[debug] [2021-04-26T18:53:49.407Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-26T18:53:49.409Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\cliente\Desktop\Repaso React\Proyecto Hunt\repasoproducthunt
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
